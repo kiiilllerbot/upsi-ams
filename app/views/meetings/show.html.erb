@@ -1,29 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @meeting.user_id %>
-</p>
-
-<p>
-  <strong>Time and date:</strong>
-  <%= @meeting.time_and_date %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @meeting.description %>
-</p>
-
-<p>
-  <strong>Matric:</strong>
-  <%= @meeting.matric_id %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @meeting.student %>
-</p>
-
-<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
-<%= link_to 'Back', meetings_path %>
+<% provide(:meeting, "active") %>
+<div class="container">
+  <div class="meeting-show">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-text text-center"><%= @meeting.student.name %> | <%= @meeting.student.matric_id %></h6>
+          <hr class="my-4">
+          <p class="card-text"><%= @meeting.description %></p>
+          <small>Set about <%= time_ago_in_words(@meeting.created_at)%> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding: 5px 0px">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= link_to 'Edit Meeting', edit_meeting_path(@meeting),:class=>"btn btn-danger btn-block"%>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,6 +1,11 @@
-<h1>Editing Meeting</h1>
-
-<%= render 'form', meeting: @meeting %>
-
-<%= link_to 'Show', @meeting %> |
-<%= link_to 'Back', meetings_path %>
+<% provide(:meeting, "active") %>
+<div class="container">
+	<div class="meeting-edit">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h6 class="text-center">Edit Meeting</h6>
+			<%= render 'form', meeting: @meeting %>
+		</div>
+	</div>
+</div>
+</div>

@@ -1,35 +1,45 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Meetings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Time and date</th>
-      <th>Description</th>
-      <th>Matric</th>
-      <th>Student</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% provide(:meeting, "active") %>
+<div class="container">
+  <div class="meeting-index">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="search">
+              <form class="form-inline my-2 my-lg-0">
+                <%= form_tag meetings_path, :method => 'get' do %>
+                  <%= text_field_tag :search,params[:search],:class=>"form-control",:placeholder => "Search by Matric ID"%>
+                  <div class="my-btn" style="margin-top: 4px">
+                    <%= submit_tag "Search",:class=>"btn btn-danger btn-block"%>
+                  </div>
+                <% end %>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
     <% @meetings.each do |meeting| %>
-      <tr>
-        <td><%= meeting.user_id %></td>
-        <td><%= meeting.time_and_date %></td>
-        <td><%= meeting.description %></td>
-        <td><%= meeting.matric_id %></td>
-        <td><%= meeting.student %></td>
-        <td><%= link_to 'Show', meeting %></td>
-        <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-        <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-text"><%= link_to meeting.student.name %> | <%= link_to meeting.student.matric_id, meeting%></h6>
+            <div class="button-group">
+              <%= link_to "Show",meeting,:class=>"btn btn-secondary btn-sm"%>
+              <%= link_to "Edit",edit_meeting_path(meeting),:class=>"btn btn-secondary btn-sm"%>
+              <%= link_to "Delete",meeting_path(meeting),method: :delete,data:{confirm:'Are you sure?'},:class=>"btn btn-secondary btn-sm"%>
+            </div>
+            <div class="small">Meeting at <strong><%= meeting.created_at%></strong></div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Meeting', new_meeting_path %>
+  </div>
+  <div class="row" style="padding: 5px 0px">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= link_to 'Add New Meeting', new_meeting_path,:class=>"btn btn-danger btn-block" %>
+    </div>
+  </div>
+</div>
+</div>

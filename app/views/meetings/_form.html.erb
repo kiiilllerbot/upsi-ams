@@ -1,17 +1,16 @@
-
 <%= simple_form_for(@meeting) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :user_id %>
-    <%= f.input :time_and_date %>
-    <%= f.input :description %>
-    <%= f.input :matric_id %>
-    <%= f.association :student %>
+    <%= f.input :user_id,:as => :hidden %>
+    <%= f.association :student,prompt:"Select Student" %>
+    <%= f.input :matric_id, label:"Matric ID"%>
+    <%= f.input :time_and_date,label: "Time and Date"%>
+    <%= f.input :description,input_html:{rows:6}%>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit,:class=>"btn btn-danger btn-block"%>
   </div>
 <% end %>
