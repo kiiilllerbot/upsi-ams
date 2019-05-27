@@ -18,6 +18,9 @@
             <%= link_to "Programs",programs_path,:class=>"nav-link"%>
           </li>
           <% end %>
+          <li class="nav-item <%= yield(:faculty)%>">
+            <%= link_to "Bugs",bugs_path,:class=>"nav-link"%>
+          </li>
           <li class="nav-item <%= yield(:sign_out)%>">
             <%= link_to "Sign-out",destroy_user_session_path,method: :delete,:class=>"nav-link"%>
           </li>
