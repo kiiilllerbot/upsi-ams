@@ -6,7 +6,7 @@
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h6 class="card-text"><%= link_to bug.message, bug %></h6>
+            <h6 class="card-text text-justify"><%= link_to bug.message, bug %></h6>
             <div class="button-group">
               <%= link_to "Show",bug,:class=>"btn btn-secondary btn-sm"%>
               <%= link_to "Edit",edit_bug_path(bug),:class=>"btn btn-secondary btn-sm"%>

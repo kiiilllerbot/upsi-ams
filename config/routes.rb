@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/index'
   resources :registers
   resources :payments
   resources :meetings
@@ -7,5 +8,5 @@ Rails.application.routes.draw do
   resources :programs
   resources :faculties
   devise_for :users
-  root 'students#index'
+  root 'home#index'
 end

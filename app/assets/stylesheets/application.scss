@@ -1,5 +1,5 @@
 @import "bootstrap";
-@import "home";
+@import "home.scss";
 html,body{
 	background-color: #212121;
 	color: #EEEEEE;
@@ -70,7 +70,7 @@ a:hover{
 	margin-top:3px;
 }
 .sign-in, .sign-up{
-	margin-top: 150px;
+	margin-top: 65px;
 	a{
 	color: #EEEEEE;
 	text-decoration: none;

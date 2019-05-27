@@ -5,13 +5,29 @@
     <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-text text-center">Payment Deposited by <%= @payment.student.name %></h5>
+          <h6 class="card-text text-center">Payment Deposited by <%= @payment.student.name %></h6>
           <hr class="my-4">
-          Student Matric ID :<%= @payment.student.matric_id %> <br>
-          Payment ID :<%="#{@payment.student.matric_id}"%>-<%= "#{@payment.id}" %> <br>
-          Amount: <%= @payment.amount %> <br>
-          Description: <%= @payment.description %> <br>
-          <small><%= @payment.created_at.strftime("%b,%d,%Y")%></small>
+          <table>
+            <tr>
+              <td>Student Matric ID</td>
+              <td style="padding-left: 10px">: <%= @payment.student.matric_id %></td>
+            </tr>
+            <tr>
+              <td>Payment ID</td>
+              <td style="padding-left: 10px">: <%="#{@payment.student.matric_id}"%>-<%= "#{@payment.id}" %></td>
+            </tr>
+            <tr>
+              <td>Amount</td>
+              <td style="padding-left: 10px">: <%= @payment.amount %> </td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td style="padding-left: 10px">: <%= @payment.description %></td>
+            </tr>
+          </table>
+          <div class="text-center" style="padding-top: 10px">
+            <small><%= @payment.created_at.strftime("%b,%d,%Y")%></small>
+          </div>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@
 				<div class="card-body">
 					<h6 class="card-text text-center"><%= @faculty.name %></h6>
 					<hr class="my-4">
-					<p class="card-text"><%= @faculty.description %></p>
+					<p class="card-text text-justify"><%= @faculty.description %></p>
 					<small>Added <%= time_ago_in_words(@faculty.created_at)%> ago</small>
 				</div>
 			</div>
