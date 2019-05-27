@@ -1,31 +1,51 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Faculties</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% provide(:faculty, "active") %>
+<div class="container">
+  <div class="faculty-index">
+      <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="search">
+              <form class="form-inline my-2 my-lg-0">
+                <%= form_tag faculties_path, :method => 'get' do %>
+                  <%= text_field_tag :search,params[:search],:class=>"form-control",:placeholder => "Search by Faculty Name"%>
+                  <div class="my-btn" style="margin-top: 4px">
+                    <%= submit_tag "Search",:class=>"btn btn-danger btn-block "%>
+                  </div>
+                <% end %>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
     <% @faculties.each do |faculty| %>
-      <tr>
-        <td><%= faculty.user_id %></td>
-        <td><%= faculty.name %></td>
-        <td><%= faculty.description %></td>
-        <td><%= link_to 'Show', faculty %></td>
-        <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
-        <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-text"><%= link_to faculty.name %></h6>
+            <div class="button-group">
+              <%= link_to "Show",faculty,:class=>"btn btn-secondary btn-sm"%>
+              <% if can? :update, @faculty%>
+                <%= link_to "Edit",edit_faculty_path(faculty),:class=>"btn btn-secondary btn-sm"%>
+              <% end %>
+              <% if can? :destroy, @faculty%>
+                <%= link_to "Delete",faculty_path(faculty),method: :delete,data:{confirm:'Are you sure?'},:class=>"btn btn-secondary btn-sm"%>
+              <% end %>
+            </div>
+            <div class="small">Added at <%= faculty.created_at.strftime("%B,%d,%Y")%></div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Faculty', new_faculty_path %>
+  </div>
+  <% if can? :create, @faculty%>
+  <div class="row" style="padding: 5px 0px">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= link_to 'Add New Faculty', new_faculty_path,:class=>"btn btn-danger btn-block" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>

@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @faculty.user_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @faculty.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @faculty.description %>
-</p>
-
-<%= link_to 'Edit', edit_faculty_path(@faculty) %> |
-<%= link_to 'Back', faculties_path %>
+<% provide(:faculty, "active") %>
+<div class="container">
+	<div class="faculty-show">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h6 class="card-text text-center"><%= @faculty.name %></h6>
+					<hr class="my-4">
+					<p class="card-text"><%= @faculty.description %></p>
+					<small>Added <%= time_ago_in_words(@faculty.created_at)%> ago</small>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% if can? :update, @faculty%>
+		<div class="row" style="padding: 5px 0px">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+				<%= link_to 'Edit Faculty', edit_faculty_path(@faculty),:class=>"btn btn-danger btn-block"%>
+			</div>
+		</div>
+	<% end %>
+</div>
+</div>

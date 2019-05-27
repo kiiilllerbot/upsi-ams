@@ -1,9 +1,10 @@
 class FacultiesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_faculty, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
-    @faculties = Faculty.all
+    @faculties = Faculty.where(["name LIKE ?","%#{params[:search]}%"])
   end
 
   def show
@@ -54,7 +55,7 @@ class FacultiesController < ApplicationController
     def set_faculty
       @faculty = Faculty.find(params[:id])
     end
-    
+
     def faculty_params
       params.require(:faculty).permit(:user_id, :name, :description)
     end

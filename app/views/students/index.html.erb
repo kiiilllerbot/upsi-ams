@@ -8,7 +8,7 @@
             <div class="search">
               <form class="form-inline my-2 my-lg-0">
                 <%= form_tag students_path, :method => 'get' do %>
-                  <%= text_field_tag :search,params[:search],:class=>"form-control mr-sm-2",:placeholder => "Search by Matric ID"%>
+                  <%= text_field_tag :search,params[:search],:class=>"form-control",:placeholder => "Search by Matric ID"%>
                   <div class="my-btn" style="margin-top: 4px">
                     <%= submit_tag "Search",:class=>"btn btn-danger btn-block "%>
                   </div>

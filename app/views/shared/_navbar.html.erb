@@ -7,28 +7,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <% if current_user.admin? %>
-          <li class="nav-item <%= yield(:faculty)%>">
+          <li class="nav-item <%= yield(:advisee_list)%>">
             <%= link_to "Advisee List",students_path,:class=>"nav-link"%>
           </li>
+          <% if current_user.admin? %>
           <li class="nav-item <%= yield(:faculty)%>">
             <%= link_to "Faculties",faculties_path,:class=>"nav-link"%>
           </li>
           <li class="nav-item <%= yield(:program)%>">
             <%= link_to "Programs",programs_path,:class=>"nav-link"%>
           </li>
-          <li class="nav-item <%= yield(:faculty)%>">
+          <% end %>
+          <li class="nav-item <%= yield(:payment)%>">
             <%= link_to "Payments",payments_path,:class=>"nav-link"%>
           </li>
-          <% end %>
-          <li class="nav-item <%= yield(:program)%>">
-            <%= link_to "Meetings",meetings_path,:class=>"nav-link"%>
+          <li class="nav-item <%= yield(:register)%>">
+            <%= link_to "Registrations",registers_path,:class=>"nav-link"%>
           </li>
-          <li class="nav-item <%= yield(:program)%>">
-            <%= link_to "Semester Registrations",registers_path,:class=>"nav-link"%>
+          <li class="nav-item <%= yield(:meeting)%>">
+            <%= link_to "Meeting",meetings_path,:class=>"nav-link"%>
           </li>
-          <li class="nav-item <%= yield(:faculty)%>">
-            <%= link_to "Bugs",bugs_path,:class=>"nav-link"%>
+          <li class="nav-item <%= yield(:bug)%>">
+            <%= link_to "Report Bug",bugs_path,:class=>"nav-link"%>
           </li>
           <li class="nav-item <%= yield(:sign_out)%>">
             <%= link_to "Sign-out",destroy_user_session_path,method: :delete,:class=>"nav-link"%>
