@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @bug.user_id %>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @bug.message %>
-</p>
-
-<%= link_to 'Edit', edit_bug_path(@bug) %> |
-<%= link_to 'Back', bugs_path %>
+<% provide(:bug, "active") %>
+<div class="container">
+	<div class="bug-show">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h6 class="card-text text-center">Reported by <%= current_user.email %></h6>
+					<hr class="my-4">
+					<p class="card-text"><%= @bug.message %></p>
+					<small>Submitted about <%= time_ago_in_words(@bug.created_at)%> ago</small>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="padding: 5px 0px">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<%= link_to 'Edit Bug', edit_bug_path(@bug),:class=>"btn btn-danger btn-block"%>
+		</div>
+	</div>
+</div>
+</div>

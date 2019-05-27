@@ -54,7 +54,7 @@ class BugsController < ApplicationController
     def set_bug
       @bug = Bug.find(params[:id])
     end
-
+    
     def bug_params
       params.require(:bug).permit(:user_id, :message)
     end

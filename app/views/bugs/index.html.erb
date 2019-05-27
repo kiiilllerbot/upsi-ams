@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Bugs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Message</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% provide(:bug, "active") %>
+<div class="container">
+  <div class="bug-index">
+    <div class="row">
     <% @bugs.each do |bug| %>
-      <tr>
-        <td><%= bug.user_id %></td>
-        <td><%= bug.message %></td>
-        <td><%= link_to 'Show', bug %></td>
-        <td><%= link_to 'Edit', edit_bug_path(bug) %></td>
-        <td><%= link_to 'Destroy', bug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-text"><%= link_to bug.message, bug %></h6>
+            <div class="button-group">
+              <%= link_to "Show",bug,:class=>"btn btn-secondary btn-sm"%>
+              <%= link_to "Edit",edit_bug_path(bug),:class=>"btn btn-secondary btn-sm"%>
+              <%= link_to "Delete",bug_path(bug),method: :delete,data:{confirm:'Are you sure?'},:class=>"btn btn-secondary btn-sm"%>
+            </div>
+            <div class="small">Reported at <%= bug.created_at.strftime("%B,%d,%Y")%></div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Bug', new_bug_path %>
+  </div>
+  <div class="row" style="padding: 5px 0px">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= link_to 'Submit New Bug', new_bug_path,:class=>"btn btn-danger btn-block" %>
+    </div>
+  </div>
+</div>
+</div>

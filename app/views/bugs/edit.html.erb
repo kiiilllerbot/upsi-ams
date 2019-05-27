@@ -1,6 +1,12 @@
-<h1>Editing Bug</h1>
 
-<%= render 'form', bug: @bug %>
-
-<%= link_to 'Show', @bug %> |
-<%= link_to 'Back', bugs_path %>
+<% provide(:bug, "active") %>
+<div class="container">
+	<div class="bug-edit">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h5 class="text-center">Edit Bug</h5>
+			<%= render 'form', bug: @bug %>
+		</div>
+	</div>
+</div>
+</div>
