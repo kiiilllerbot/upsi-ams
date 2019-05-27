@@ -1,9 +1,10 @@
 class PaymentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
-    @payments = Payment.all
+    @payments = Payment.where(["matric_id LIKE ?","%#{params[:search]}%"])
   end
 
   def show
@@ -54,8 +55,8 @@ class PaymentsController < ApplicationController
     def set_payment
       @payment = Payment.find(params[:id])
     end
-
+    
     def payment_params
-      params.require(:payment).permit(:user_id, :matric_id, :amount, :description, :student_id)
+      params.require(:payment).permit(:user_id, :amount, :description, :student_id,:matric_id)
     end
 end

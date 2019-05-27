@@ -1,29 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @payment.user_id %>
-</p>
-
-<p>
-  <strong>Matric:</strong>
-  <%= @payment.matric_id %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @payment.amount %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @payment.description %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @payment.student %>
-</p>
-
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+<% provide(:payment, "active") %>
+<div class="container">
+  <div class="payment-show">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-text text-center">Payment Deposited by <%= @payment.student.name %></h5>
+          <hr class="my-4">
+          Student Matric ID :<%= @payment.student.matric_id %> <br>
+          Payment ID :<%="#{@payment.student.matric_id}"%>-<%= "#{@payment.id}" %> <br>
+          Amount: <%= @payment.amount %> <br>
+          Description: <%= @payment.description %> <br>
+          <small><%= @payment.created_at.strftime("%b,%d,%Y")%></small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 5px">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= link_to 'Back', payments_path,:class=>"btn btn-danger btn-block"%>
+    </div>
+  </div>
+</div>
+</div>

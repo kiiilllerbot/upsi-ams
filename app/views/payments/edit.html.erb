@@ -1,6 +1,9 @@
-<h1>Editing Payment</h1>
+<% provide(:payment, "active") %>
+<div class="container">
+	<h1>Editing Payment</h1>
 
 <%= render 'form', payment: @payment %>
 
 <%= link_to 'Show', @payment %> |
 <%= link_to 'Back', payments_path %>
+</div>
