@@ -1,9 +1,10 @@
 class ProgramsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_program, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
-    @programs = Program.all
+    @programs = Program.where(["name LIKE ?","%#{params[:search]}%"])
   end
 
   def show

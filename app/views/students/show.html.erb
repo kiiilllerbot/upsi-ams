@@ -1,208 +1,24 @@
-<% provide(:advisee_list, "active") %>
+<% provide(:program, "active") %>
 <div class="container">
-  <div class="student-show">
+  <div class="program-show">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="card">
         <div class="card-body">
-          <h5 class="text-center"><%= @student.name %></h5>
+          <h6 class="card-text text-center"><%= @program.name %></h6>
           <hr class="my-4">
-          <h6>Basic Information</h6>
-          <table>
-            <tr>
-              <td>Matric ID</td>
-              <td style="padding-left: 25px">: <%= @student.matric_id %></td>
-            </tr>
-            <tr>
-              <td>Faculty</td>
-              <td style="padding-left: 25px">: <%= @student.faculty.name %></td>
-            </tr>
-            <tr>
-              <td>Program</td>
-              <td style="padding-left: 25px">: <%= @student.program.name %></td>
-            </tr>
-            <tr>
-              <td>Status</td>
-              <td style="padding-left: 25px">: <%= @student.student_status %></td>
-            </tr>
-            <tr>
-              <td>Level</td>
-              <td style="padding-left: 25px">: <%= @student.study_level %></td>
-            </tr>
-            <tr>
-              <td>Current Semester</td>
-              <td style="padding-left: 25px">: <%= @student.current_semester %></td>
-            </tr>
-            <tr>
-              <td>Type</td>
-              <td style="padding-left: 25px">: <%= @student.student_type %></td>
-            </tr>
-            <tr>
-              <td>College</td>
-              <td style="padding-left: 25px">: <%= @student.college %></td>
-            </tr>
-            <tr>
-              <td>IC Number</td>
-              <td style="padding-left: 25px">: <%= @student.ic_number %></td>
-            </tr>
-            <tr>
-              <td>Passport Number</td>
-              <td style="padding-left: 25px">: <%= @student.passport_number %></td>
-            </tr>
-            <tr>
-              <td>Permanent Address</td>
-              <td style="padding-left: 25px">: <%= @student.permanent_address %></td>
-            </tr>
-            <tr>
-              <td>Current Address</td>
-              <td style="padding-left: 25px">: <%= @student.current_address %></td>
-            </tr>
-            <tr>
-              <td>Country</td>
-              <td style="padding-left: 25px">: <%= @student.country %></td>
-            </tr>
-            <tr>
-              <td>Gender</td>
-              <td style="padding-left: 25px">: <%= @student.gender %></td>
-            </tr>
-            <tr>
-              <td>Date of Birth</td>
-              <td style="padding-left: 25px">: <%= @student.date_of_birth %></td>
-            </tr>
-            <tr>
-              <td>Mobile Number</td>
-              <td style="padding-left: 25px">: <%= @student.mobile_number %></td>
-            </tr>
-            <tr>
-              <td>Blood Group</td>
-              <td style="padding-left: 25px">: <%= @student.blood_type %></td>
-            </tr>
-            <tr>
-              <td>Race</td>
-              <td style="padding-left: 25px">: <%= @student.race %></td>
-            </tr>
-            <tr>
-              <td>Religion</td>
-              <td style="padding-left: 25px">: <%= @student.religion %></td>
-            </tr>
-            <tr>
-              <td>Marital Status</td>
-              <td style="padding-left: 25px">: <%= @student.marital_status %></td>
-            </tr>
-            <tr>
-              <td>Bank</td>
-              <td style="padding-left: 25px">: <%= @student.bank %></td>
-            </tr>
-            <tr>
-              <td>Bank Account</td>
-              <td style="padding-left: 25px">: <%= @student.bank_account %></td>
-            </tr>
-            <tr>
-              <td>Sponsor</td>
-              <td style="padding-left: 25px">: <%= @student.sponsor %></td>
-            </tr>
-            <tr>
-              <td>Siswa Email</td>
-              <td style="padding-left: 25px">: <%= @student.siswa_email %></td>
-            </tr>
-            <tr>
-              <td>Personal Email</td>
-              <td style="padding-left: 25px">: <%= @student.personal_email %></td>
-            </tr>
-          </table>
-          <br>
-          <h6>Academic Results</h6>
-          <hr class="my-4">
-          <table>
-            <tr>
-              <td>Semester-1 CGPA</td>
-              <td style="padding-left: 25px">:
-                <% if @student.cgpa_1.empty? %>
-                  Not Evaluated Yet
-                <% else %>
-                  <%= @student.cgpa_1 %>
-                <% end %>
-                </td>
-            </tr>
-            <tr>
-              <td>Semester-2 CGPA</td>
-              <td style="padding-left: 25px">:
-                <% if @student.cgpa_2.empty? %>
-                  Not Evaluated Yet
-                <% else %>
-                  <%= @student.cgpa_2 %>
-                <% end %>
-                </td>
-            </tr>
-            <tr>
-              <td>Semester-3 CGPA</td>
-              <td style="padding-left: 25px">:
-                <% if @student.cgpa_3.empty? %>
-                  Not Evaluated Yet
-                <% else %>
-                  <%= @student.cgpa_3 %>
-                <% end %>
-                </td>
-            </tr>
-            <tr>
-              <td>Semester-4 CGPA</td>
-              <td style="padding-left: 25px">:
-                <% if @student.cgpa_4.empty? %>
-                  Not Evaluated Yet
-                <% else %>
-                  <%= @student.cgpa_4 %>
-                <% end %>
-                </td>
-            </tr>
-            <tr>
-              <td>Semester-5 CGPA</td>
-              <td style="padding-left: 25px">:
-                <% if @student.cgpa_5.empty? %>
-                  Not Evaluated Yet
-                <% else %>
-                  <%= @student.cgpa_5 %>
-                <% end %>
-                </td>
-            </tr>
-            <tr>
-              <td>Semester-6 CGPA</td>
-              <td style="padding-left: 25px">:
-                <% if @student.cgpa_6.empty? %>
-                  Not Evaluated Yet
-                <% else %>
-                  <%= @student.cgpa_6 %>
-                <% end %>
-                </td>
-            </tr>
-            <tr>
-              <td>Semester-7 CGPA</td>
-              <td style="padding-left: 25px">:
-                <% if @student.cgpa_7.empty? %>
-                  Not Evaluated Yet
-                <% else %>
-                  <%= @student.cgpa_7 %>
-                <% end %>
-                </td>
-            </tr>
-            <tr>
-              <td>Semester-8 CGPA</td>
-              <td style="padding-left: 25px">:
-                <% if @student.cgpa_8.empty? %>
-                  Not Evaluated Yet
-                <% else %>
-                  <%= @student.cgpa_8 %>
-                <% end %>
-                </td>
-            </tr>
-          </table>
+          <p class="card-text"><%= @program.description %></p>
+          <small>Added <%= time_ago_in_words(@program.created_at)%> ago</small>
         </div>
       </div>
-      <% if can? :update, @student %>
-      <div class="link" style="padding-bottom: 5px">
-        <%= link_to 'Edit', edit_student_path(@student),:class=>"btn btn-danger btn-block"%>
-      </div>
-      <% end %>
     </div>
   </div>
+  <% if can? :update, @program %>
+    <div class="row" style="padding: 5px 0px">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <%= link_to 'Edit Program', edit_program_path(@program),:class=>"btn btn-danger btn-block"%>
+      </div>
+    </div>
+  <% end %>
 </div>
 </div>

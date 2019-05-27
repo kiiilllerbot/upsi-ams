@@ -1,6 +1,11 @@
-<h1>Editing Program</h1>
-
-<%= render 'form', program: @program %>
-
-<%= link_to 'Show', @program %> |
-<%= link_to 'Back', programs_path %>
+<% provide(:program, "active") %>
+<div class="container">
+	<div class="program-edit">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h6 class="text-center">Edit Program</h6>
+			<%= render 'form', program: @program %>
+		</div>
+	</div>
+</div>
+</div>
