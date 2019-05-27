@@ -1,29 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @register.user_id %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @register.description %>
-</p>
-
-<p>
-  <strong>Semester:</strong>
-  <%= @register.semester %>
-</p>
-
-<p>
-  <strong>Matric:</strong>
-  <%= @register.matric_id %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @register.student %>
-</p>
-
-<%= link_to 'Edit', edit_register_path(@register) %> |
-<%= link_to 'Back', registers_path %>
+<% provide(:register, "active") %>
+<div class="container">
+  <div class="register-show">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-text text-center"><%= @register.student.name %></h6>
+          <hr class="my-4">
+          <p class="card-text">Matric ID : <%= @register.student.matric_id%></p>
+          <p class="card-text">Registered For Semester : <%= @register.semester%></p>
+          <p class="card-text"><%= @register.description %></p>
+          <small>About <%= time_ago_in_words(@register.created_at)%> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding: 5px 0px">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= link_to 'Back', registers_path,:class=>"btn btn-danger btn-block"%>
+    </div>
+  </div>
+</div>
+</div>

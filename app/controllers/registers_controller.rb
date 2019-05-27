@@ -3,7 +3,7 @@ class RegistersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @registers = Register.all
+    @registers = Register.where(["matric_id LIKE ?","%#{params[:search]}%"])
   end
 
   def show
@@ -56,6 +56,6 @@ class RegistersController < ApplicationController
     end
 
     def register_params
-      params.require(:register).permit(:user_id, :description, :semester, :matric_id, :student_id)
+      params.require(:register).permit(:user_id, :description, :semester, :student_id,:matric_id)
     end
 end

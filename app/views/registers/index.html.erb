@@ -1,35 +1,40 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Registers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Description</th>
-      <th>Semester</th>
-      <th>Matric</th>
-      <th>Student</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% provide(:register, "active") %>
+<div class="container">
+  <div class="register-index">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="search">
+              <form class="form-inline my-2 my-lg-0">
+                <%= form_tag registers_path, :method => 'get' do %>
+                  <%= text_field_tag :search,params[:search],:class=>"form-control",:placeholder => "Search by matric id"%>
+                  <div class="my-btn" style="margin-top: 4px">
+                    <%= submit_tag "Search",:class=>"btn btn-danger btn-block"%>
+                  </div>
+                <% end %>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
     <% @registers.each do |register| %>
-      <tr>
-        <td><%= register.user_id %></td>
-        <td><%= register.description %></td>
-        <td><%= register.semester %></td>
-        <td><%= register.matric_id %></td>
-        <td><%= register.student %></td>
-        <td><%= link_to 'Show', register %></td>
-        <td><%= link_to 'Edit', edit_register_path(register) %></td>
-        <td><%= link_to 'Destroy', register, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-text"><%= link_to register.student.name,register %> | <%= link_to register.student.matric_id, register%></h6>
+            <div class="small">Registered at <%= register.created_at.strftime("%B,%d,%Y")%></div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Register', new_register_path %>
+  </div>
+  <div class="row" style="padding: 5px 0px">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= link_to 'Register New Student', new_register_path,:class=>"btn btn-danger btn-block" %>
+    </div>
+  </div>
+</div>
+</div>
