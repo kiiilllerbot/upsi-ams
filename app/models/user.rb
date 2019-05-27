@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :faculties
   has_many :programs
+  has_many :students
 end

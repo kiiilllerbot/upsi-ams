@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_190820) do
+ActiveRecord::Schema.define(version: 2019_05_27_191655) do
 
   create_table "faculties", force: :cascade do |t|
     t.integer "user_id"
@@ -26,6 +26,51 @@ ActiveRecord::Schema.define(version: 2019_05_27_190820) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "matric_id"
+    t.string "name"
+    t.string "student_status"
+    t.string "study_level"
+    t.string "current_semester"
+    t.string "student_type"
+    t.string "college"
+    t.string "ic_number"
+    t.string "passport_number"
+    t.text "permanent_address"
+    t.text "current_address"
+    t.string "country"
+    t.string "gender"
+    t.date "date_of_birth"
+    t.string "mobile_number"
+    t.string "blood_type"
+    t.string "race"
+    t.string "religion"
+    t.string "marital_status"
+    t.string "bank"
+    t.string "bank_account"
+    t.string "sponsor"
+    t.string "siswa_email"
+    t.string "personal_email"
+    t.string "cgpa_1"
+    t.string "cgpa_2"
+    t.string "cgpa_3"
+    t.string "cgpa_4"
+    t.string "cgpa_5"
+    t.string "cgpa_6"
+    t.string "cgpa_7"
+    t.string "cgpa_8"
+    t.integer "faculty_id"
+    t.integer "program_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["faculty_id"], name: "index_students_on_faculty_id"
+    t.index ["ic_number"], name: "index_students_on_ic_number", unique: true
+    t.index ["matric_id"], name: "index_students_on_matric_id", unique: true
+    t.index ["passport_number"], name: "index_students_on_passport_number", unique: true
+    t.index ["program_id"], name: "index_students_on_program_id"
   end
 
   create_table "users", force: :cascade do |t|
