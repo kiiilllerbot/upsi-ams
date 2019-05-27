@@ -1,8 +1,10 @@
 class StudentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except:[:index]
+
   def index
-    @students = Student.all
+    @students = Student.where(["matric_id LIKE ?","%#{params[:search]}%"])
   end
 
   def show
@@ -55,6 +57,6 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.require(:student).permit(:user_id, :matric_id, :name, :student_status, :study_level, :current_semester, :student_type, :college, :ic_number, :passport_number, :permanent_address, :current_address, :country, :gender, :date_of_birth, :mobile_number, :blood_type, :race, :religion, :marital_status, :bank, :bank_account, :sponsor, :siswa_email, :personal_email, :cgpa_1, :cgpa_2, :cgpa_3, :cgpa_4, :cgpa_5, :cgpa_6, :cgpa_7, :cgpa_8, :faculty_id, :program_id)
+      params.require(:student).permit(:user_id, :matric_id, :name, :student_status, :study_level, :current_semester, :student_type, :college, :ic_number, :passport_number, :permanent_address, :current_address, :country, :gender, :date_of_birth, :mobile_number, :blood_type, :race, :religion, :marital_status, :bank, :bank_account, :sponsor, :siswa_mail, :personal_email, :cgpa_1, :cgpa_2, :cgpa_3, :cgpa_4, :cgpa_5, :cgpa_6, :cgpa_7, :cgpa_8, :faculty_id, :program_id)
     end
 end
