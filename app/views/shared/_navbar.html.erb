@@ -24,6 +24,9 @@
           <li class="nav-item <%= yield(:program)%>">
             <%= link_to "Meetings",meetings_path,:class=>"nav-link"%>
           </li>
+          <li class="nav-item <%= yield(:program)%>">
+            <%= link_to "Semester Registrations",registers_path,:class=>"nav-link"%>
+          </li>
           <li class="nav-item <%= yield(:faculty)%>">
             <%= link_to "Bugs",bugs_path,:class=>"nav-link"%>
           </li>

@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :bugs
   has_many :meetings
   has_many :payments
+  has_many :registers
 end
