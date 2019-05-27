@@ -1,1 +1,117 @@
 @import "bootstrap";
+@import "home";
+html,body{
+	background-color: #212121;
+	color: #EEEEEE;
+	margin-top: 20px;
+}
+// Center Collapse Menu
+@media (max-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+.navbar-toggler{
+	border: 0;
+}
+.active{
+	border-bottom: 1px solid #EEEEEE;
+}
+.search{
+	margin: 0 auto;
+    width:80%;
+	input[type="text"]{
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.search{
+	margin: 0 auto;
+    width:80%;
+	input[type="text"]{
+		width: 75%;
+		}
+	}
+}
+
+select {
+   width: 100%;
+   border-radius: 0px !important;
+   -webkit-appearance: none;
+   -webkit-border-radius: 0px;
+   height: 40px;
+   padding: 8px;
+}
+a{
+	color: #EEEEEE;
+	text-decoration: none;
+	opacity: 1;
+	}
+a:hover{
+	color: #EEEEEE;
+	text-decoration: none;
+	}
+.form-control{
+	border-radius: 0;
+}
+.btn{
+	border-radius: 0;
+}
+.card{
+	background-color: #263238;
+	border-radius: 0;
+	color: #EEEEEE;
+	margin-bottom: 3px;
+}
+.small{
+	margin-top:3px;
+}
+.sign-in, .sign-up{
+	margin-top: 150px;
+	a{
+	color: #EEEEEE;
+	text-decoration: none;
+	opacity: 0.5;
+}
+	a:hover{
+		color: #EEEEEE;
+		text-decoration: none;
+		opacity: 1;
+	}
+	h4{
+		padding: 20px 0px;
+	}
+	.fas{
+		font-size: 100px;
+		color: #FF4848;
+		opacity: 0.5;
+	}
+	.links{
+		padding-top: 5px;
+	}
+}
+.links{
+	text-align: center;
+	margin-top: 10px;
+}
+.faculty-index{
+	a{
+	color: #EEEEEE;
+	text-decoration: none;
+	opacity: 1;
+	}
+	a:hover{
+	color: #EEEEEE;
+	text-decoration: none;
+	}
+}
+.faculty-new,.program-new,.faculty-edit,.program-edit,.payment-new,.meeting-new,.meeting-edit,.bug-new,.bug-edit{
+	margin-top: 25px;
+}
