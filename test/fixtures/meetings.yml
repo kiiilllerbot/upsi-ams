@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  time_and_date: 2019-05-28 03:29:47
+  description: MyText
+  matric_id: 1
+  student: one
+
+two:
+  user_id: 1
+  time_and_date: 2019-05-28 03:29:47
+  description: MyText
+  matric_id: 1
+  student: two
