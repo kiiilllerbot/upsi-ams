@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :students
   has_many :bugs
   has_many :meetings
+  has_many :payments
 end
