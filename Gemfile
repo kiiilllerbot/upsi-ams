@@ -22,7 +22,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'simple_form', '~> 4.1'
-gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'devise', '~> 4.7'
 gem 'country_select', '~> 4.0'
 gem 'cancancan', '~> 3.0', '>= 3.0.1'
 
