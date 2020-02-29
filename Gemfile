@@ -12,7 +12,7 @@ group :production do
 	gem 'pg'
 	gem 'rails_12factor', '~> 0.0.3'
 end
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
